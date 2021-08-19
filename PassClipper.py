@@ -10,7 +10,7 @@ with open(path) as file:
 
 if len(sys.argv) < 2:
     print("Usage python PassClipper.py [website]")
-    exit()
+    sys.exit()
 account = sys.argv[1]
 
 if account in users:
