@@ -1,5 +1,8 @@
 import csv, sys, pyperclip
-
+if len(sys.argv) < 2:
+    print("Usage python PassClipper.py [website]")
+    sys.exit()
+account = sys.argv[1]
 print("""Choose your browser
 1. Firefox
 2. Chrome""")
@@ -20,10 +23,7 @@ elif browser == "1":
         for row in read:
             users[row['url']] = row
 
-if len(sys.argv) < 2:
-    print("Usage python PassClipper.py [website]")
-    sys.exit()
-account = sys.argv[1]
+
 
 if account in users:
     pyperclip.copy(users[account]['password'])
