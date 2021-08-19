@@ -1,12 +1,24 @@
 import csv, sys, pyperclip
 
+print("""Choose your browser
+1. Firefox
+2. Chrome""")
+browser = input()
 path = input("Enter the path of your password csv file: ")
 users = {}
-with open(path) as file:
-    read = csv.DictReader(file)
-    for row in read:
-        users[row['name']] = row
 
+if browser == "2":
+    with open(path) as file:
+        read = csv.DictReader(file)
+        for row in read:
+            users[row['name']] = row
+
+
+elif browser == "1":
+    with open(path) as file:
+        read = csv.DictReader(file)
+        for row in read:
+            users[row['url']] = row
 
 if len(sys.argv) < 2:
     print("Usage python PassClipper.py [website]")
